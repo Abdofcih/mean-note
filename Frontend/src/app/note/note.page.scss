@@ -1,0 +1,21 @@
+ion-content {
+    --ion-background-color: var(--ion-color-tertiary);
+    --overflow: hidden;
+  }
+ion-input{
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+}
+ion-textarea {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 7px;
+}
+ion-item {
+    --ion-background-color: #fff;
+    margin-top: 7px;
+    font-weight: bold;
+    --border-radius: 20px;
+    --color: var(--ion-color-tertiary);
+}

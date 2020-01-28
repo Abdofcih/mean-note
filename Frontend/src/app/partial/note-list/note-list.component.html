@@ -1,0 +1,5 @@
+<ion-list *ngIf="notes">
+ <ng-container  *ngFor="let note of notes">
+     <app-note [note]="note"></app-note>
+   </ng-container>
+</ion-list>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >
+      Profile
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="displayOptions()" > 
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<header class="header-profile">
+  <div class="profile--cover"></div>
+  <div class="profile--info">
+    <img src="../../assets/shapes.svg" alt="" width="150" height="150">
+    <ion-button class="camera" color="light" (click)="onImage()"> 
+      <ion-icon slot="icon-only" name="camera" color="tertiary"></ion-icon>
+    </ion-button>
+    <h1>{{user?.name}}</h1>
+    <ion-card-subtitle>{{user?.email}}</ion-card-subtitle>
+  </div>
+</header>
+  <ion-grid>
+    <ion-row>
+        <ion-col>
+          <div class="stat">
+            <ion-icon name="list"></ion-icon>
+            <h2>
+              Notes
+              <p>{{counts.all}}</p>
+            </h2>
+            
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="stat">
+            <ion-icon name="star"></ion-icon>
+            <h2>
+              Favourite
+              <p>{{counts.isfavourite}}</p>
+            </h2>
+          </div>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+   <div class="copy"> &copy; By Abdelrahman.m.fcih@gmail.com</div>
+  <div class="one-image" *ngFor="let img of imageResponse">
+    <img src="{{img}}" alt="" srcset="">
+  </div>
+ 
+</ion-content>

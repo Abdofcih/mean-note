@@ -1,0 +1,42 @@
+<form #lF="ngForm" (ngSubmit)="submitLogin(lF)" >
+  <ion-item>
+    <ion-label position="floating"  color="light">Email</ion-label>
+    <ion-input 
+          ngModel
+          name="email"
+          #email="ngModel" 
+          required type="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
+  </ion-item >
+  <ion-badge color="danger" ></ion-badge>
+  <ion-badge color="danger" *ngIf="email.touched && email.invalid">
+    <span *ngIf="email?.errors.required">Email is required</span>
+    <span *ngIf="email?.errors.pattern">Email not valide</span>
+  </ion-badge>
+  <ion-item>
+    <ion-label position="floating"  color="light">Password</ion-label>
+    <ion-input 
+              type="password"
+              ngModel 
+              name="password" 
+              #password="ngModel" 
+              required 
+              minlength="8"></ion-input>
+  </ion-item>
+  <ion-badge color="danger" *ngIf="password.touched && password.invalid">
+    <span *ngIf="password?.errors.required">
+      Password is required
+    </span>
+    <span *ngIf="password?.errors.minlength">
+      Password is minimum 
+      {{password?.errors.minlength.requiredLength}} 
+      character not 
+      {{password?.errors.minlength.actualLength}}
+    </span>
+  </ion-badge>
+  <ion-button class="ion-margin-horizontal-custom-top"
+   size="large" color="light" expand="block" 
+   [disabled]="!lF.valid" type="submit">
+   Submit
+  </ion-button>
+</form>

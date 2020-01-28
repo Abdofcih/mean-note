@@ -1,0 +1,14 @@
+ion-item {
+    --ion-background-color: #fff;
+    width: 95%;
+    margin: 15px auto;
+    font-weight: bold;
+    border-radius: 20px;
+    --border-radius: 20px;
+    --color: var(--ion-color-tertiary);
+  }
+  ion-item:hover{
+    --color: var(--ion-color-light);
+    border: 2px solid var(--ion-color-light);
+  
+  }

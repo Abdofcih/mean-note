@@ -1,0 +1,7 @@
+<ion-content class="ion-padding">
+<h2 class="ion-margin-horizontal-custom">Mean Note</h2>
+  <!-- Start log in form -->
+  <app-signup *ngIf="view==='signUp'"></app-signup>
+  <login-component *ngIf="view==='logIn'"></login-component>
+  <ion-button class="fixed-bottom" color="tertiary" (click)="switchForms()" >Or {{switchTextTo}}</ion-button>
+</ion-content>

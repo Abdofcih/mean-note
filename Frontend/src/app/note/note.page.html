@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Note </ion-title>
+    <ion-buttons slot="end" *ngIf="id">
+      <ion-button (click)="deleteNote()"> 
+          <ion-icon  slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #noteForm="ngForm" (ngSubmit)="submitNote(noteForm)" >
+  <ion-input 
+           placeholder="Note title"
+           [(ngModel)]='note.title'
+           name="title"></ion-input>
+  <ion-textarea 
+       rows="20" 
+       placeholder="...note body"
+       [(ngModel)]='note.body'
+       name="body"></ion-textarea>
+  <!-- (input)="noteChanged()" [(ngModel)]="note.content" -->
+  <ion-item>
+    <ion-label>Mark as Favourite</ion-label>
+    <ion-toggle    [(ngModel)]='note.isfavourite' name="isfavourite"></ion-toggle>
+  </ion-item>
+  <ion-button
+     color="light" expand="block" type="submit" >
+      {{buttonText}}
+ </ion-button>
+</form>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >
+      All Notes
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/note">
+        <ion-icon slot="icon-only" name="clipboard" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+ <app-note-list [notes]="notes"></app-note-list>
+</ion-content>
+
+<!--
+
+
+-->

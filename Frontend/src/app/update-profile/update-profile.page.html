@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #uF="ngForm" (ngSubmit)="submitUpdate(uF)"  *ngIf="user">
+    <ion-item>
+      <ion-label position="floating"  color="light">Name</ion-label>
+      <ion-input 
+                type="text"
+                [(ngModel)]="user.name" 
+                name="name" 
+                #name="ngModel" 
+                required 
+                minlength="4"></ion-input>
+    </ion-item>
+    <ion-badge color="danger" *ngIf="name.touched && name.invalid">
+      <span *ngIf="name?.errors.required">
+        Name is required
+      </span>
+      <span *ngIf="name?.errors.minlength">
+        Name is minimum 
+        {{name?.errors.minlength.requiredLength}} 
+        character not 
+        {{name?.errors.minlength.actualLength}}
+      </span>
+    </ion-badge>
+  
+    <ion-item>
+      <ion-label position="floating"  color="light">Email</ion-label>
+      <ion-input 
+            [(ngModel)]="user.email"
+            name="email"
+            #email="ngModel" 
+            required type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
+    </ion-item >
+    <ion-badge color="danger" ></ion-badge>
+    <ion-badge color="danger" *ngIf="email.touched && email.invalid">
+      <span *ngIf="email?.errors.required">Email is required</span>
+      <span *ngIf="email?.errors.pattern">Email not valide</span>
+    </ion-badge>
+
+    <ion-item>
+      <ion-label position="floating"  color="light">age</ion-label>
+      <ion-input 
+                type="number"
+                [(ngModel)]="user.age" 
+                name="age" 
+                #age="ngModel"
+                (keyup)="validateAge(age.value)"></ion-input>
+    </ion-item>
+    <ion-badge color="danger" *ngIf="!isValidAge">
+      age is greater than 10 and less than 100
+    </ion-badge>
+    <ion-button class="ion-margin-horizontal-custom-top"
+     size="large"
+     color="light" expand="block" 
+     [disabled]="!uF.valid" type="submit">
+      Update
+    </ion-button>
+  </form>
+</ion-content>

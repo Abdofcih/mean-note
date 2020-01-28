@@ -1,0 +1,15 @@
+ion-content{
+    --background:linear-gradient(to right bottom ,#670a99b0,#f8f8f866), url('../../assets/img/bg2.png') no-repeat center center / cover;
+    text-align: center;
+    --overflow: hidden;
+    --color: #fff;
+    position: relative;
+
+}
+
+.fixed-bottom{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}

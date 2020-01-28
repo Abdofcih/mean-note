@@ -1,0 +1,7 @@
+{
+  "name": "MeanNote",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
