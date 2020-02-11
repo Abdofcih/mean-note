@@ -15,9 +15,15 @@
 <header class="header-profile">
   <div class="profile--cover"></div>
   <div class="profile--info">
-    <img src="../../assets/shapes.svg" alt="" width="150" height="150">
-    <ion-button class="camera" color="light" (click)="onImage()"> 
-      <ion-icon slot="icon-only" name="camera" color="tertiary"></ion-icon>
+    <img src="../../assets/shapes.svg" alt="" width="150" height="150" *ngIf="!imageUrl" >
+    <img [src]="imageUrl" alt="" width="150" height="150"  *ngIf="imageUrl">
+    <input
+      style="display: none"
+      type="file"  (change)="onImage($event)"
+      #fileInput>
+    <ion-button  class="imageOptions" color="light" (click)="fileInput.click()"> 
+      <ion-icon  name="more" color="tertiary"></ion-icon>
+      <ion-icon name="camera" color="tertiary"></ion-icon>
     </ion-button>
     <h1>{{user?.name}}</h1>
     <ion-card-subtitle>{{user?.email}}</ion-card-subtitle>
